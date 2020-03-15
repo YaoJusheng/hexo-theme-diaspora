@@ -23,12 +23,57 @@
                 </ul>
             <%}%>
         </div>
+        <%# "版权说明" %>
+        <% if (theme.copyright) {%>
+          <div class="declare">
+            <%- partial('_partial/post/declare') %>
+          </div>
+        <% } %>
+        
         <%- partial('gitalk', {post: page}) %>
+
+        <%# "以下为集成的可配置评论系统" %>
+        <% if (theme.giteement && theme.giteement.enable){ %>
+          <section id="giteement-container" style="margin:10px;padding:10px;width:100%;">
+            <%- partial('_partial/post/giteement', {
+              key: page.slug,
+              title: page.title,
+              url: config.url+url_for(page.path)
+            }) %>
+          </section>
+        <% } %>
+        
+        <% if (theme.valine && theme.valine.appid && theme.valine.appkey){ %>
+          <section id="valine-container" style="margin:10px;padding:10px;background:#fff;">
+            <%- partial('_partial/post/valine', {
+              key: page.slug,
+              title: page.title,
+              url: config.url+url_for(page.path)
+            }) %>
+          </section>
+        <% } %>
+
+        <% if (theme.utterance && theme.utterance.enable){ %>
+          <section id="utterance-container" class="comments">
+            <style>
+              .utterances{max-width: 100%;}
+            </style>
+            <script src="https://utteranc.es/client.js"
+              repo="<%= theme.utterance.repo %>"
+              issue-term="<%= theme.utterance.issue_term %>"
+              theme="<%= theme.utterance.theme %>"
+              crossorigin="anonymous"
+              async>
+            </script>
+          </section>
+        <% } %>
+
     </div>
     <% if (theme.TOC == true){ %>
         <div class='side'>
 			<%- toc(page.content, {list_number: true}) %>	
         </div>
     <%}%>
+
 </div>
 
