@@ -100,7 +100,7 @@ var Diaspora = {
             setTimeout(function() {
                 Diaspora.player();
                 $('#top').show();
-                comment = $("#gitalk-container");
+                comment = $("#comment-container");
                 if (comment.data('ae') == true){
                     comment.click();
                 }
@@ -601,9 +601,10 @@ $(function() {
                 break;
             // comment
             case - 1 != tag.indexOf("comment"): 
-				if($('#gitalk-container').data('enable') == true){
+      
+				if($('#comment-container').data('enable') == true){
 					Diaspora.loading(),
-					comment = $('#gitalk-container');
+					comment = $('#comment-container');
 					gitalk = new Gitalk({
 					  clientID: comment.data('ci'),
 					  clientSecret: comment.data('cs'),
@@ -614,10 +615,11 @@ $(function() {
 					  distractionFreeMode: comment.data('d')
 					})
 					$(".comment").removeClass("link")
-					gitalk.render('gitalk-container')
+					gitalk.render('comment-container')
 					Diaspora.loaded();
 				}else{
-					$('#gitalk-container').html("评论已关闭");
+          $('#comment-container').html("Gitalk评论已关闭");
+					location.reload();
 				}
                 return false;
                 break;
@@ -627,7 +629,7 @@ $(function() {
         }
     })
     // 是否自动展开评论
-    comment = $("#gitalk-container");
+    comment = $("#comment-container");
     if (comment.data('ae') == true){
         comment.click();
     }
