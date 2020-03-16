@@ -323,3 +323,26 @@ pre .keyword,pre .javascript .function {color:#cc99cc;}
   .article .side {display:none}
   .comment .gt-btn-public .gt-btn-text:after{content:"";}
 }
+
+#footer {
+  font-size: 13px;
+  font-family: Menlo,Monaco,Andale Mono,lucida console,Courier New,monospace;
+  text-shadow: 0 1px #fff;
+  position: absolute;
+  bottom: 30px;
+  opacity: .6;
+  width: 100%;
+  text-align: center
+}
+
+#footer .outer {
+  padding: 0 30px
+}
+
+.footer-left {
+  float: left
+}
+
+.footer-right {
+  float: right
+}

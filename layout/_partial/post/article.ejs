@@ -5,6 +5,12 @@
             <span><%- page.date.locale("zh-cn").format("MMMM DD, YYYY") %></span>
             <%- partial('_partial/post/tag', {post: page}) %>
         </div>
+        <!-- 字数统计 -->
+        <% if(theme.word_count && theme.word_count.enable && !page.no_word_count){%>
+          <div align="center">
+            <%- partial('_partial/post/word') %>
+          </div>
+        <% } %>
         <div class="content markdown">
             <%- page.content %>
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
