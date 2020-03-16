@@ -9,6 +9,7 @@ menu:
 
 # 是否显示目录
 TOC: true
+toc_number: false
 
 # 是否自动播放音乐
 autoplay: true
@@ -177,7 +178,7 @@ copyright:
 keywords: Python、PHP、Ruby开发、前端
 
 # 要使用google_analytics进行统计的话，这里需要配置ID
-google_analytics: 
+google_analytics: UA-160768358-1
 
 # 网站ico
 # favicon: /images/site-icon/svg/MrYao02.svg
